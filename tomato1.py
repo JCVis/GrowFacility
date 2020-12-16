@@ -7,14 +7,14 @@ Created on Wed Dec 16 16:27:18 2020
 
 
 from bluepy import btle
-
+import time
 print("Connecting to Tomato 1...")
 
 dev = btle.Peripheral("10:52:1C:5D:68:CA")
 chars = dev.getCharacteristics()
 
 variables = [['f22','Temperature'],['f23','Pressure'],['f24','Air Humidity'], ['f25','Soil Humidity']]
-values  = ''
+values  += str(time.time()) + ','
 for char in chars:
     hand = char.getHandle()
     UUID = str(char.uuid)
@@ -22,9 +22,9 @@ for char in chars:
         if var[0] in UUID:
             print(var[1])
             val = dev.readCharacteristic(hand).decode('utf-8')
-            values += str(val) + ' '
+            values += str(val) + ','
             print(val)
 print(values)
 f = open('Tomato1.txt', 'a+')
-f.write()
+f.write(values)
 f.close()
