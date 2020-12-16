@@ -21,5 +21,5 @@ for char in chars:
     for var in variables:
         if var[0] in UUID:
             print(var[1])
-    val = dev.readCharacteristic(hand).decode('utf-8')
+            val = dev.readCharacteristic(hand).decode('utf-8')
     print(val)
