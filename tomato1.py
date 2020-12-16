@@ -14,7 +14,7 @@ dev = btle.Peripheral("10:52:1C:5D:68:CA")
 chars = dev.getCharacteristics()
 
 variables = [['f22','Temperature'],['f23','Pressure'],['f24','Air Humidity'], ['f25','Soil Humidity']]
-values  = str(time.time()) + ','
+values  = str(int(time.time())) + ','
 for char in chars:
     hand = char.getHandle()
     UUID = str(char.uuid)
