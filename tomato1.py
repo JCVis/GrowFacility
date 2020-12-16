@@ -23,6 +23,7 @@ for char in chars:
             print(var[1])
             val = dev.readCharacteristic(hand).decode('utf-8')
             values += str(val) + ','
+            values += '/n'
             print(val)
 print(values)
 f = open('Tomato1.txt', 'a+')
