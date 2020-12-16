@@ -22,7 +22,7 @@ for char in chars:
         if var[0] in UUID:
             print(var[1])
             val = dev.readCharacteristic(hand).decode('utf-8')
-            values.append(val)
+            values += str(val) + ' '
             print(val)
 print(values)
 f = open('Tomato1.txt', 'a+')
