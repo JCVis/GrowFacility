@@ -25,6 +25,6 @@ for char in chars:
             values += str(val) + ','
             print(val)
 print(values)
-f = open('/weatherstation/Tomato1.txt', 'a+')
+f = open('weatherstation/Tomato1.txt', 'a+')
 f.write(values)
 f.close()
