@@ -22,4 +22,4 @@ for char in chars:
         if var[0] in UUID:
             print(var[1])
             val = dev.readCharacteristic(hand).decode('utf-8')
-    print(val)
+            print(val)
