@@ -13,7 +13,13 @@ print("Connecting to Tomato 1...")
 dev = btle.Peripheral("10:52:1C:5D:68:CA")
 chars = dev.getCharacteristics()
 
+variables = [['f22','Temperature'],['f23','Pressure'],['f24','Air Humidity'], ['f25','Soil Humidity']]
+
 for char in chars:
+    hand = char.getHandle()
     UUID = str(char.uuid)
-    
-    
+    for var in variables:
+        if var[0] in UUID:
+            print(var[1])
+    val = dev.readCharacteristic(hand).decode('utf-8')
+    print(val)
